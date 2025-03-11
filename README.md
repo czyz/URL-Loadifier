@@ -2,7 +2,7 @@
 
 A simple web tool that helps you open multiple URLs in new tabs with controlled timing. 
 
-Use this tool to efficiently transfer tabs between devices or browsers. For example, you can export tabs from one device to a text file, then use URL Loadifier to reopen them on another device. The tool also supports opening URLs in regular or incognito mode, with configurable timing to prevent browser overload.
+Use this tool to efficiently transfer tabs between devices or browsers. Export tabs to a text file from one device, then use URL Loadifier to reopen them on another. Supports both regular and incognito modes, with configurable timing to prevent browser overload. Successfully tested with 1200+ URLs.
 
 ## Features
 - Open multiple URLs in batches

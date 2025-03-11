@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Loadifier</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6">
+    <div class="max-w-4xl mx-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">URL Loadifier</h1>
+            <button 
+                onclick="showHelp()"
+                class="text-blue-600 hover:text-blue-800 text-sm flex items-center"
+                title="Learn how to use URL Loadifier"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                </svg>
+                How to Use
+            </button>
+        </div>
+        <div class="bg-white rounded-lg shadow p-6">
+            <textarea 
+                class="w-full h-96 p-4 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 resize-none"
+                oninput="handleInput(event)"
+                placeholder="Enter URLs separated by whitespace (spaces, newlines, or tabs)..."
+                title="Paste your URLs here, one per line or separated by spaces"
+            ></textarea>
+            
+            <div class="mt-4 text-sm text-gray-600 space-y-2">
+                <div>Characters: <span id="charCount">0</span></div>
+                <div>Lines: <span id="lineCount">0</span></div>
+                <div>URLs found: <span id="urlCount">0</span></div>
+            </div>
+
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">
+                        URLs per batch
+                        <input 
+                            type="number" 
+                            id="batchSize" 
+                            value="50" 
+                            min="1"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            title="Number of URLs to open before waiting for the batch delay"
+                        >
+                    </label>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">
+                        Delay between URLs (ms)
+                        <input 
+                            type="number" 
+                            id="urlDelay" 
+                            value="300" 
+                            min="0"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            title="Time to wait between opening each URL (in milliseconds)"
+                        >
+                    </label>
+                </div>
+                <div class="space-y-2">
+                    <label class="block text-sm font-medium text-gray-700">
+                        Delay between batches (ms)
+                        <input 
+                            type="number" 
+                            id="batchDelay" 
+                            value="5000" 
+                            min="0"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                            title="Time to wait after opening a batch of URLs before starting the next batch (in milliseconds)"
+                        >
+                    </label>
+                </div>
+            </div>
+
+            <div class="mt-4 flex items-center">
+                <input 
+                    type="checkbox" 
+                    id="testPopups" 
+                    checked
+                    class="h-4 w-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
+                    title="Opens a single URL first to check if popups are allowed"
+                >
+                <label for="testPopups" class="ml-2 text-sm font-medium text-gray-700">
+                    Test popup blocker before opening batch
+                </label>
+            </div>
+
+            <button 
+                id="submitButton"
+                class="mt-6 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                onclick="handleSubmit()"
+                title="Click to open all URLs in new tabs"
+            >
+                Launch URLs
+            </button>
+        </div>
+    </div>
+    <script src="script.js?v=1.0.2"></script>
+</body>
+</html> 

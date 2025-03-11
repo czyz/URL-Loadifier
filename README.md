@@ -23,8 +23,6 @@ Use this tool to efficiently transfer tabs between devices or browsers. Export t
 - Safari
 - Edge
 
-Note: Some browsers (like Chrome on iOS) may have restrictions on opening multiple tabs.
-
 ## Local Development
 1. Clone the repository
 2. Open `index.html` in your browser
